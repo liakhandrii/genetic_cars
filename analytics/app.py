@@ -8,5 +8,5 @@ mongo = PyMongo(app)
 @app.route('/')
 def home_page():
 	test = mongo.db.events.find({})
-	view_this_suka = dumps(test)
-	return str(view_this_suka)
+	view_this = dumps(test)
+	return str(view_this)
