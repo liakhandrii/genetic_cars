@@ -15,22 +15,35 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     private var lastUpdateTime : TimeInterval = 0
-    private var car : SKSpriteNode!
+    private var car : GCCarNode!
     private var carView: SKSpriteNode!
-    private var spinnyNode : SKShapeNode?
+    private var frontViewDisplay: SKSpriteNode!
     
     private let cam = SKCameraNode()
     
     private var carPhysicsBody: SKPhysicsBody!
     private var carViewPhysicsBody: SKPhysicsBody!
+    private var defaultCarPosition: CGPoint!
+    private var defaultCarSize: CGSize!
+    
+    private var testCoefficient: CGFloat = 0.5
+    private var frontViewEnabled = false
+    private var frontViewDisplayPosition : CGPoint!
     
     override func sceneDidLoad() {
         
         self.lastUpdateTime = 0
         
         // Get label node from scene and store it for use later
-        self.car = self.childNode(withName: "car") as? SKSpriteNode
+        self.car = self.childNode(withName: "car") as? GCCarNode
         self.carView = self.childNode(withName: "car_view") as? SKSpriteNode
+        self.frontViewDisplay = self.childNode(withName: "frontViewDisplay") as? SKSpriteNode
+        
+        self.defaultCarPosition = car.position
+        self.defaultCarSize = car.size
+        self.frontViewDisplayPosition = frontViewDisplay.position
+        
+        self.car.genome = GCCarGenome(coefficient: testCoefficient)
         
         carPhysicsBody = SKPhysicsBody(rectangleOf: car!.frame.size)
         carPhysicsBody?.affectedByGravity = false
@@ -41,64 +54,25 @@ class GameScene: SKScene {
         carViewPhysicsBody.mass = 0
         self.carView.physicsBody = carViewPhysicsBody
         
-        let fixedJoint = SKPhysicsJointFixed.joint(withBodyA: carPhysicsBody, bodyB: carViewPhysicsBody, anchor: CGPoint(x: car.frame.maxX, y: car.frame.minY + car.frame.width / 2))
-        fixedJoint.bodyA = carPhysicsBody
-        fixedJoint.bodyB = carViewPhysicsBody
+        let fixedViewJoint = SKPhysicsJointFixed.joint(withBodyA: carPhysicsBody, bodyB: carViewPhysicsBody, anchor: CGPoint(x: car.frame.maxX, y: car.frame.minY + car.frame.width / 2))
+        fixedViewJoint.bodyA = carPhysicsBody
+        fixedViewJoint.bodyB = carViewPhysicsBody
         
-        self.physicsWorld.add(fixedJoint)
+        let fixedDisplayJoint = SKPhysicsJointFixed.joint(withBodyA: carPhysicsBody, bodyB: carViewPhysicsBody, anchor: CGPoint(x: car.frame.maxX, y: car.frame.minY + car.frame.width / 2))
+        fixedDisplayJoint.bodyA = carPhysicsBody
+        fixedDisplayJoint.bodyB = carViewPhysicsBody
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+        self.physicsWorld.add(fixedViewJoint)
         
         self.camera = cam
+        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: {
+            timer in
+            self.frontViewEnabled = true
+        })
+        
     }
     
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-    override func mouseDown(with event: NSEvent) {
-        self.touchDown(atPoint: event.location(in: self))
-    }
-    
-    override func mouseDragged(with event: NSEvent) {
-        self.touchMoved(toPoint: event.location(in: self))
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-        self.touchUp(atPoint: event.location(in: self))
-    }
+    var timer: Timer?
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
@@ -119,6 +93,12 @@ class GameScene: SKScene {
         self.lastUpdateTime = currentTime
         
         cam.position = car!.position
+        frontViewDisplay.position = CGPoint(x: frontViewDisplayPosition.x + cam.position.x, y: frontViewDisplayPosition.y + cam.position.y)
+        
+        if frontViewEnabled {
+            let frontView = getCarView()
+            frontViewDisplay.texture = SKTexture(image: frontView)
+        }
     }
     
     public override func keyDown(with event: NSEvent) {
@@ -134,7 +114,7 @@ class GameScene: SKScene {
             if let theArrow = event.charactersIgnoringModifiers, let keyChar = theArrow.unicodeScalars.first?.value{
                 switch Int(keyChar){
                 case NSUpArrowFunctionKey:
-                    accelerate()
+                    moveForward()
                     break
                 case NSDownArrowFunctionKey:
                     decelerate()
@@ -170,7 +150,7 @@ class GameScene: SKScene {
         let dv: CGFloat = 100
         let dx: CGFloat = dv * cos(angle)
         let dy: CGFloat = dv * sin(angle)
-        //carPhysicsBody?.vel
+        carPhysicsBody?.applyForce(CGVector(dx: dx, dy: dy))
     }
     
     func decelerate() {
@@ -251,14 +231,29 @@ class GameScene: SKScene {
         carView.zRotation = velocityAngle
     }
     
-    private func getCarView() {
-//        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 1);
-//        [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
-//        UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-//        UIGraphicsEndImageContext();
-//        return  viewImage;
+    private func getCarView() -> NSImage {
+        if let window = view?.window {
+            let windowID = CGWindowID( window.windowNumber )
+            let wOrigin = window.frame.origin
+            let captureRect = CGRect(x: wOrigin.x + view!.frame.width / 2 + carView.position.x - cam.position.x + cos(car.zRotation) * defaultCarSize.width / 2,
+                                     y: wOrigin.y + view!.frame.height / 2 + carView.position.y - carView!.frame.height - cam.position.y + sin(car.zRotation) * defaultCarSize.width / 2,
+                                     width: carView.frame.width,
+                                     height: carView.frame.height)
+//            let captureRect = CGRect(x: wOrigin.x + view!.frame.width / 2 + carView.position.x - cam.position.x + carView!.frame.width / 2,
+//                                     y: wOrigin.y + view!.frame.height / 2 - carView!.frame.height,
+//                                     width: carView.frame.width,
+//                                     height: carView.frame.height)
+            return NSImage(cgImage: CGWindowListCreateImage( captureRect, CGWindowListOption.optionIncludingWindow, windowID, CGWindowImageOption.boundsIgnoreFraming )!, size: carView.size)
+        }
         
-        //self.view?.dataWithPDF(inside: <#T##NSRect#>)
-        
+        return NSImage()
+    }
+}
+
+class GCCarNode: SKSpriteNode {
+    var genome: GCCarGenome?
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 }
