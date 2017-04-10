@@ -1,0 +1,561 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		965895961E9B97BA0073382D /* GCCarGenome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965895951E9B97BA0073382D /* GCCarGenome.swift */; };
+		965895981E9B983E0073382D /* GCRoadInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965895971E9B983E0073382D /* GCRoadInfo.swift */; };
+		9680F9951E899FA500EF63AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680F9941E899FA500EF63AB /* AppDelegate.swift */; };
+		9680F9971E899FA500EF63AB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9680F9961E899FA500EF63AB /* GameScene.sks */; };
+		9680F9991E899FA500EF63AB /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9680F9981E899FA500EF63AB /* Actions.sks */; };
+		9680F99B1E899FA500EF63AB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680F99A1E899FA500EF63AB /* GameScene.swift */; };
+		9680F99D1E899FA500EF63AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680F99C1E899FA500EF63AB /* ViewController.swift */; };
+		9680F99F1E899FA500EF63AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9680F99E1E899FA500EF63AB /* Assets.xcassets */; };
+		9680F9A21E899FA500EF63AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9680F9A01E899FA500EF63AB /* Main.storyboard */; };
+		9680F9AD1E899FA600EF63AB /* GeneticCarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680F9AC1E899FA600EF63AB /* GeneticCarTests.swift */; };
+		9680F9B81E899FA600EF63AB /* GeneticCarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680F9B71E899FA600EF63AB /* GeneticCarUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9680F9A91E899FA600EF63AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9680F9891E899FA500EF63AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9680F9901E899FA500EF63AB;
+			remoteInfo = GeneticCar;
+		};
+		9680F9B41E899FA600EF63AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9680F9891E899FA500EF63AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9680F9901E899FA500EF63AB;
+			remoteInfo = GeneticCar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		965895951E9B97BA0073382D /* GCCarGenome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GCCarGenome.swift; path = genetic/GCCarGenome.swift; sourceTree = "<group>"; };
+		965895971E9B983E0073382D /* GCRoadInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GCRoadInfo.swift; path = genetic/GCRoadInfo.swift; sourceTree = "<group>"; };
+		9680F9911E899FA500EF63AB /* GeneticCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeneticCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9680F9941E899FA500EF63AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9680F9961E899FA500EF63AB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		9680F9981E899FA500EF63AB /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		9680F99A1E899FA500EF63AB /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		9680F99C1E899FA500EF63AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9680F99E1E899FA500EF63AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9680F9A11E899FA500EF63AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9680F9A31E899FA500EF63AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9680F9A81E899FA600EF63AB /* GeneticCarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeneticCarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9680F9AC1E899FA600EF63AB /* GeneticCarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneticCarTests.swift; sourceTree = "<group>"; };
+		9680F9AE1E899FA600EF63AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9680F9B31E899FA600EF63AB /* GeneticCarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeneticCarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9680F9B71E899FA600EF63AB /* GeneticCarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneticCarUITests.swift; sourceTree = "<group>"; };
+		9680F9B91E899FA600EF63AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9680F98E1E899FA500EF63AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9680F9A51E899FA600EF63AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9680F9B01E899FA600EF63AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		965895941E9B97970073382D /* genetic */ = {
+			isa = PBXGroup;
+			children = (
+				965895951E9B97BA0073382D /* GCCarGenome.swift */,
+				965895971E9B983E0073382D /* GCRoadInfo.swift */,
+			);
+			name = genetic;
+			sourceTree = "<group>";
+		};
+		9680F9881E899FA500EF63AB = {
+			isa = PBXGroup;
+			children = (
+				9680F9931E899FA500EF63AB /* GeneticCar */,
+				9680F9AB1E899FA600EF63AB /* GeneticCarTests */,
+				9680F9B61E899FA600EF63AB /* GeneticCarUITests */,
+				9680F9921E899FA500EF63AB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9680F9921E899FA500EF63AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9680F9911E899FA500EF63AB /* GeneticCar.app */,
+				9680F9A81E899FA600EF63AB /* GeneticCarTests.xctest */,
+				9680F9B31E899FA600EF63AB /* GeneticCarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9680F9931E899FA500EF63AB /* GeneticCar */ = {
+			isa = PBXGroup;
+			children = (
+				9680F9941E899FA500EF63AB /* AppDelegate.swift */,
+				9680F9961E899FA500EF63AB /* GameScene.sks */,
+				9680F9981E899FA500EF63AB /* Actions.sks */,
+				9680F99A1E899FA500EF63AB /* GameScene.swift */,
+				965895941E9B97970073382D /* genetic */,
+				9680F99C1E899FA500EF63AB /* ViewController.swift */,
+				9680F99E1E899FA500EF63AB /* Assets.xcassets */,
+				9680F9A01E899FA500EF63AB /* Main.storyboard */,
+				9680F9A31E899FA500EF63AB /* Info.plist */,
+			);
+			path = GeneticCar;
+			sourceTree = "<group>";
+		};
+		9680F9AB1E899FA600EF63AB /* GeneticCarTests */ = {
+			isa = PBXGroup;
+			children = (
+				9680F9AC1E899FA600EF63AB /* GeneticCarTests.swift */,
+				9680F9AE1E899FA600EF63AB /* Info.plist */,
+			);
+			path = GeneticCarTests;
+			sourceTree = "<group>";
+		};
+		9680F9B61E899FA600EF63AB /* GeneticCarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9680F9B71E899FA600EF63AB /* GeneticCarUITests.swift */,
+				9680F9B91E899FA600EF63AB /* Info.plist */,
+			);
+			path = GeneticCarUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9680F9901E899FA500EF63AB /* GeneticCar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9680F9BC1E899FA600EF63AB /* Build configuration list for PBXNativeTarget "GeneticCar" */;
+			buildPhases = (
+				9680F98D1E899FA500EF63AB /* Sources */,
+				9680F98E1E899FA500EF63AB /* Frameworks */,
+				9680F98F1E899FA500EF63AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeneticCar;
+			productName = GeneticCar;
+			productReference = 9680F9911E899FA500EF63AB /* GeneticCar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9680F9A71E899FA600EF63AB /* GeneticCarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9680F9BF1E899FA600EF63AB /* Build configuration list for PBXNativeTarget "GeneticCarTests" */;
+			buildPhases = (
+				9680F9A41E899FA600EF63AB /* Sources */,
+				9680F9A51E899FA600EF63AB /* Frameworks */,
+				9680F9A61E899FA600EF63AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9680F9AA1E899FA600EF63AB /* PBXTargetDependency */,
+			);
+			name = GeneticCarTests;
+			productName = GeneticCarTests;
+			productReference = 9680F9A81E899FA600EF63AB /* GeneticCarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9680F9B21E899FA600EF63AB /* GeneticCarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9680F9C21E899FA600EF63AB /* Build configuration list for PBXNativeTarget "GeneticCarUITests" */;
+			buildPhases = (
+				9680F9AF1E899FA600EF63AB /* Sources */,
+				9680F9B01E899FA600EF63AB /* Frameworks */,
+				9680F9B11E899FA600EF63AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9680F9B51E899FA600EF63AB /* PBXTargetDependency */,
+			);
+			name = GeneticCarUITests;
+			productName = GeneticCarUITests;
+			productReference = 9680F9B31E899FA600EF63AB /* GeneticCarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9680F9891E899FA500EF63AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Andrew Liakh";
+				TargetAttributes = {
+					9680F9901E899FA500EF63AB = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = T7FJ6TGHSZ;
+						ProvisioningStyle = Automatic;
+					};
+					9680F9A71E899FA600EF63AB = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = T7FJ6TGHSZ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9680F9901E899FA500EF63AB;
+					};
+					9680F9B21E899FA600EF63AB = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = T7FJ6TGHSZ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9680F9901E899FA500EF63AB;
+					};
+				};
+			};
+			buildConfigurationList = 9680F98C1E899FA500EF63AB /* Build configuration list for PBXProject "GeneticCar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9680F9881E899FA500EF63AB;
+			productRefGroup = 9680F9921E899FA500EF63AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9680F9901E899FA500EF63AB /* GeneticCar */,
+				9680F9A71E899FA600EF63AB /* GeneticCarTests */,
+				9680F9B21E899FA600EF63AB /* GeneticCarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9680F98F1E899FA500EF63AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9680F9971E899FA500EF63AB /* GameScene.sks in Resources */,
+				9680F99F1E899FA500EF63AB /* Assets.xcassets in Resources */,
+				9680F9991E899FA500EF63AB /* Actions.sks in Resources */,
+				9680F9A21E899FA500EF63AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9680F9A61E899FA600EF63AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9680F9B11E899FA600EF63AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9680F98D1E899FA500EF63AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9680F99D1E899FA500EF63AB /* ViewController.swift in Sources */,
+				9680F99B1E899FA500EF63AB /* GameScene.swift in Sources */,
+				965895981E9B983E0073382D /* GCRoadInfo.swift in Sources */,
+				9680F9951E899FA500EF63AB /* AppDelegate.swift in Sources */,
+				965895961E9B97BA0073382D /* GCCarGenome.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9680F9A41E899FA600EF63AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9680F9AD1E899FA600EF63AB /* GeneticCarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9680F9AF1E899FA600EF63AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9680F9B81E899FA600EF63AB /* GeneticCarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9680F9AA1E899FA600EF63AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9680F9901E899FA500EF63AB /* GeneticCar */;
+			targetProxy = 9680F9A91E899FA600EF63AB /* PBXContainerItemProxy */;
+		};
+		9680F9B51E899FA600EF63AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9680F9901E899FA500EF63AB /* GeneticCar */;
+			targetProxy = 9680F9B41E899FA600EF63AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9680F9A01E899FA500EF63AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9680F9A11E899FA500EF63AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9680F9BA1E899FA600EF63AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9680F9BB1E899FA600EF63AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		9680F9BD1E899FA600EF63AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T7FJ6TGHSZ;
+				INFOPLIST_FILE = GeneticCar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = ua.com.andriiliakh.GeneticCar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		9680F9BE1E899FA600EF63AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T7FJ6TGHSZ;
+				INFOPLIST_FILE = GeneticCar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = ua.com.andriiliakh.GeneticCar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		9680F9C01E899FA600EF63AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T7FJ6TGHSZ;
+				INFOPLIST_FILE = GeneticCarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ua.com.andriiliakh.GeneticCarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeneticCar.app/Contents/MacOS/GeneticCar";
+			};
+			name = Debug;
+		};
+		9680F9C11E899FA600EF63AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T7FJ6TGHSZ;
+				INFOPLIST_FILE = GeneticCarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ua.com.andriiliakh.GeneticCarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeneticCar.app/Contents/MacOS/GeneticCar";
+			};
+			name = Release;
+		};
+		9680F9C31E899FA600EF63AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T7FJ6TGHSZ;
+				INFOPLIST_FILE = GeneticCarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ua.com.andriiliakh.GeneticCarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = GeneticCar;
+			};
+			name = Debug;
+		};
+		9680F9C41E899FA600EF63AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T7FJ6TGHSZ;
+				INFOPLIST_FILE = GeneticCarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ua.com.andriiliakh.GeneticCarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = GeneticCar;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9680F98C1E899FA500EF63AB /* Build configuration list for PBXProject "GeneticCar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9680F9BA1E899FA600EF63AB /* Debug */,
+				9680F9BB1E899FA600EF63AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9680F9BC1E899FA600EF63AB /* Build configuration list for PBXNativeTarget "GeneticCar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9680F9BD1E899FA600EF63AB /* Debug */,
+				9680F9BE1E899FA600EF63AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9680F9BF1E899FA600EF63AB /* Build configuration list for PBXNativeTarget "GeneticCarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9680F9C01E899FA600EF63AB /* Debug */,
+				9680F9C11E899FA600EF63AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9680F9C21E899FA600EF63AB /* Build configuration list for PBXNativeTarget "GeneticCarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9680F9C31E899FA600EF63AB /* Debug */,
+				9680F9C41E899FA600EF63AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9680F9891E899FA500EF63AB /* Project object */;
+}
