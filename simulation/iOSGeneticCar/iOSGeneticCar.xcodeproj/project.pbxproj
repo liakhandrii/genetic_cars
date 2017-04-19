@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6ADB4C091EA819C000D6CF58 /* Evolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADB4C081EA819C000D6CF58 /* Evolution.swift */; };
 		965895A81E9D13AA0073382D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965895A71E9D13AA0073382D /* AppDelegate.swift */; };
 		965895AA1E9D13AA0073382D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 965895A91E9D13AA0073382D /* GameScene.sks */; };
 		965895AC1E9D13AA0073382D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 965895AB1E9D13AA0073382D /* Actions.sks */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6ADB4C081EA819C000D6CF58 /* Evolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evolution.swift; sourceTree = "<group>"; };
 		965895A41E9D13AA0073382D /* iOSGeneticCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSGeneticCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965895A71E9D13AA0073382D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		965895A91E9D13AA0073382D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				965895DC1E9D146C0073382D /* GCCarGenome.swift */,
 				965895DE1E9D147E0073382D /* GCRoadInfo.swift */,
+				6ADB4C081EA819C000D6CF58 /* Evolution.swift */,
 			);
 			name = genetic;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				965895AE1E9D13AA0073382D /* GameScene.swift in Sources */,
 				965895E31E9D1FC70073382D /* Extensions.swift in Sources */,
 				965895B01E9D13AA0073382D /* GameViewController.swift in Sources */,
+				6ADB4C091EA819C000D6CF58 /* Evolution.swift in Sources */,
 				965895DF1E9D147E0073382D /* GCRoadInfo.swift in Sources */,
 				965895A81E9D13AA0073382D /* AppDelegate.swift in Sources */,
 				965895DD1E9D146C0073382D /* GCCarGenome.swift in Sources */,
@@ -548,6 +552,7 @@
 				965895D41E9D13AA0073382D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		965895D51E9D13AA0073382D /* Build configuration list for PBXNativeTarget "iOSGeneticCarTests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +561,7 @@
 				965895D71E9D13AA0073382D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		965895D81E9D13AA0073382D /* Build configuration list for PBXNativeTarget "iOSGeneticCarUITests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +570,7 @@
 				965895DA1E9D13AA0073382D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

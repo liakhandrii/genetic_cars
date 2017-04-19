@@ -18,6 +18,7 @@ class GameScene: SKScene {
     private var car : GCCarNode!
     private var carView: SKSpriteNode!
     private var frontViewDisplay: SKSpriteNode!
+    private var frontViewDisplayContainer: SKSpriteNode!
     
     private let cam = SKCameraNode()
     
@@ -31,10 +32,15 @@ class GameScene: SKScene {
     private var leftButton: SKSpriteNode!
     private var rightButton: SKSpriteNode!
     
+    private var topCoefficientLabel: SKLabelNode!
+    private var topDeltaLabel: SKLabelNode!
+    private var bottomCoefficientLabel: SKLabelNode!
+    private var bottomDeltaLabel: SKLabelNode!
+    
     private var testTopCoefficientDelta: CGFloat = 0.2
     private var testBottomCoefficientDelta: CGFloat = 0.1
     private var frontViewEnabled = false
-    private var frontViewDisplayPosition : CGPoint!
+    private var frontViewDisplayContainerPosition : CGPoint!
     
     private var upButtonPosition: CGPoint!
     private var downButtonPosition: CGPoint!
@@ -48,16 +54,22 @@ class GameScene: SKScene {
         // Get label node from scene and store it for use later
         self.car = self.childNode(withName: "car") as? GCCarNode
         self.carView = self.childNode(withName: "car_view") as? SKSpriteNode
-        self.frontViewDisplay = self.childNode(withName: "frontViewDisplay") as? SKSpriteNode
+        self.frontViewDisplayContainer = self.childNode(withName: "frontViewDisplayContainer") as? SKSpriteNode
+        self.frontViewDisplay = frontViewDisplayContainer.childNode(withName: "frontViewDisplay") as? SKSpriteNode
         
         self.upButton = self.childNode(withName: "up") as? SKSpriteNode
         self.downButton = self.childNode(withName: "down") as? SKSpriteNode
         self.leftButton = self.childNode(withName: "left") as? SKSpriteNode
         self.rightButton = self.childNode(withName: "right") as? SKSpriteNode
         
+        self.topCoefficientLabel = frontViewDisplayContainer.childNode(withName: "topCoefficientLabel") as? SKLabelNode
+        self.topDeltaLabel = frontViewDisplayContainer.childNode(withName: "topDeltaLabel") as? SKLabelNode
+        self.bottomCoefficientLabel = frontViewDisplayContainer.childNode(withName: "bottomCoefficientLabel") as? SKLabelNode
+        self.bottomDeltaLabel = frontViewDisplayContainer.childNode(withName: "bottomDeltaLabel") as? SKLabelNode
+        
         self.defaultCarPosition = car.position
         self.defaultCarSize = car.size
-        self.frontViewDisplayPosition = frontViewDisplay.position
+        self.frontViewDisplayContainerPosition = frontViewDisplayContainer.position
         
         self.upButtonPosition = upButton.position
         self.downButtonPosition = downButton.position
@@ -114,7 +126,7 @@ class GameScene: SKScene {
         self.lastUpdateTime = currentTime
         
         cam.position = car!.position
-        frontViewDisplay.position = CGPoint(x: frontViewDisplayPosition.x + cam.position.x, y: frontViewDisplayPosition.y + cam.position.y)
+        frontViewDisplayContainer.position = CGPoint(x: frontViewDisplayContainerPosition.x + cam.position.x, y: frontViewDisplayContainerPosition.y + cam.position.y)
         
         upButton.position = CGPoint(x: upButtonPosition.x + cam.position.x, y: upButtonPosition.y + cam.position.y)
         downButton.position = CGPoint(x: downButtonPosition.x + cam.position.x, y: downButtonPosition.y + cam.position.y)
@@ -129,6 +141,11 @@ class GameScene: SKScene {
             if let roadInfo = getRoadInfo(carView: frontView!) {
                 let topDelta = GCRoadInfo.straight - roadInfo.topCoefficient
                 let bottomDelta = GCRoadInfo.straight - roadInfo.bottomCoefficient
+                
+                topCoefficientLabel.text = "tc: \(Double(round(100 * roadInfo.topCoefficient)/100))"
+                topDeltaLabel.text = "td: \(Double(round(100 * topDelta)/100))"
+                bottomCoefficientLabel.text = "bc: \(Double(round(100 * roadInfo.bottomCoefficient)/100))"
+                bottomDeltaLabel.text = "bd: \(Double(round(100 * bottomDelta)/100))"
                 
                 if abs(topDelta) >= car.genome!.neededTopCoefficientDelta {
                     if topDelta >= 0 {
@@ -166,6 +183,8 @@ class GameScene: SKScene {
         carPhysicsBody?.applyForce(CGVector(dx: -dx, dy: -dy))
     }
     
+    let turnMultiplier: CGFloat = 2
+    
     func turnLeft() {
         let mult = CGFloat(car!.zRotation > 0 ? 1 : -1)
         let angle = car!.zRotation + degree * 90 * mult
@@ -174,7 +193,7 @@ class GameScene: SKScene {
         let curdy = carPhysicsBody.velocity.dy
         let curdv = sqrt(pow(curdy, 2) + pow(curdx, 2))
         
-        let dv: CGFloat = curdv / 10
+        let dv: CGFloat = curdv * turnMultiplier
         let dx: CGFloat = dv * cos(angle) * mult
         let dy: CGFloat = dv * sin(angle) * mult
         carPhysicsBody?.applyForce(CGVector(dx: dx, dy: dy))
@@ -188,7 +207,7 @@ class GameScene: SKScene {
         let curdy = carPhysicsBody.velocity.dy
         let curdv = sqrt(pow(curdy, 2) + pow(curdx, 2))
         
-        let dv: CGFloat = curdv
+        let dv: CGFloat = curdv * turnMultiplier
         let dx: CGFloat = dv * cos(angle) * mult
         let dy: CGFloat = dv * sin(angle) * mult
         carPhysicsBody?.applyForce(CGVector(dx: dx, dy: dy))
@@ -201,7 +220,7 @@ class GameScene: SKScene {
     }
     
     var degree: CGFloat {
-        return CGFloat(M_PI / 180)
+        return CGFloat(Double.pi / 180)
     }
     
     override func didSimulatePhysics() {
@@ -221,13 +240,13 @@ class GameScene: SKScene {
         var velocityAngle: CGFloat = 0
         
         if dx == 0 {
-            velocityAngle = CGFloat(dy > 0 ? M_PI_2 : -M_PI_2)
+            velocityAngle = CGFloat(dy > 0 ? Double.pi / 2 : -Double.pi / 2)
         } else if dx < 0 && dy > 0 {
-            velocityAngle = atan(dy / dx) + CGFloat(M_PI)
+            velocityAngle = atan(dy / dx) + CGFloat(Double.pi)
         } else if dy == 0 {
-            velocityAngle = CGFloat(dx > 0 ? 0 : M_PI)
+            velocityAngle = CGFloat(dx > 0 ? 0 : Double.pi)
         } else if dx < 0 && dy < 0 {
-            velocityAngle = atan(dy / dx) - CGFloat(M_PI)
+            velocityAngle = atan(dy / dx) - CGFloat(Double.pi)
         } else {
             velocityAngle = atan(dy / dx)
         }
