@@ -5,8 +5,13 @@ from bson.json_util import dumps
 app = Flask('test')
 mongo = PyMongo(app)
 
-@app.route('/')
+@app.route('/connect')
 def home_page():
 	test = mongo.db.events.find({})
 	view_this = dumps(test)
 	return str(view_this)
+
+@app.route('/visualize')
+def visualize_page():
+	pass
+
