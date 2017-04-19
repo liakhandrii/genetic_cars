@@ -1,0 +1,9 @@
+{"gen_num": 1,
+  "creatures": [
+    {"id": 1, "score": 0.03, "top_coeff": 0.1, "bot_coeff": 0.003},
+    {"id": 2, "score": 0.3, "top_coeff": 0.14, "bot_coeff": 0.004},
+    {"id": 3, "score": 0.43, "top_coeff": 0.2, "bot_coeff": 0.005},
+    {"id": 4, "score": 0.63, "top_coeff": 0.25, "bot_coeff": 0.01},
+    {"id": 5, "score": 0.68, "top_coeff": 0.21, "bot_coeff": 0.009}
+  ]
+}
